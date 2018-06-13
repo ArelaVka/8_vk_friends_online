@@ -2,7 +2,6 @@ import vk
 import getpass
 
 APP_ID = 6604044
-version = 5.8
 
 
 def get_user_login():
@@ -13,7 +12,7 @@ def get_user_password():
     return getpass.getpass('Enter your password: ')
 
 
-def get_online_friends(login, password, version):
+def get_online_friends(login, password, version='5.8'):
     session = vk.AuthSession(
         app_id=APP_ID,
         user_login=login,
@@ -34,7 +33,7 @@ if __name__ == '__main__':
     login = get_user_login()
     password = get_user_password()
     if login and password:
-        friends_online = get_online_friends(login, password, version)
+        friends_online = get_online_friends(login, password)
         print('\nList of online users:\n')
         output_friends_to_console(friends_online)
     else:
